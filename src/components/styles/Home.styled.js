@@ -12,9 +12,10 @@ export const FlexRowContainerLoading = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
+  text-align: center;
   font-size: 64px;
-  height:40vh;
+  height:45vh;
   width: 96%;
   margin: 20px;
   svg{
@@ -30,6 +31,10 @@ export const FlexRowContainerSpaceBetween = styled.div`
   flex-flow: row wrap;
   padding: 15px;
   width: 100%;
+
+  @media(max-width:768px){
+    padding: 0;
+  }
 `;
 export const InputBox = styled.div`
   color: ${({ theme }) => theme.text};
@@ -37,9 +42,9 @@ export const InputBox = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-flow: row nowrap;
-  width: 360px;
+  width: 360px !important;
   height: 60px;
-  margin: 20px;
+  margin: 10px;
   background-color: ${({ theme }) => theme.input};
   border-radius: 6px;
   -webkit-box-shadow: 0px 10px 27px -15px rgba(0, 0, 0, 1);
@@ -69,6 +74,7 @@ export const CustomInput = styled.input`
 export const CustomSelect = styled.select`
 
   color: ${({ theme }) => theme.text};
+  font-size: 16px;
   background-color: ${({ theme }) => theme.select};
   border: none;
   -webkit-box-shadow: 0px 10px 27px -15px rgba(0, 0, 0, 1);
@@ -77,8 +83,8 @@ export const CustomSelect = styled.select`
   border-radius: 6px;
   width: 200px;
   height: 60px;
-  margin: 20px;
-  margin-top: 0;
+  margin: 10px;
+  padding:  0 10px;
   :focus {
     outline: none;
   }

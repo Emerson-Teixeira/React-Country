@@ -88,6 +88,7 @@ export default function Home() {
     cityName ? getDataByName(cityName) : getData();
     setRegion("");
   };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleInputDebounce = useCallback(debounce(handleCityInput), []);
   return (
     <Container>

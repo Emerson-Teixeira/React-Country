@@ -27,10 +27,10 @@ export const Logo = styled.div`
   font-size: 1.5rem;
   transition: 0.2s;
   @media (max-width: 1444px) and (min-width: 769px) {
-    font-size: 16px;
+    font-size: 20px;
   }
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 16px;
   }
 `;
 

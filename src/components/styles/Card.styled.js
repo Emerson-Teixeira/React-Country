@@ -4,14 +4,16 @@ export const CardContainer = styled.div`
   width: 320px;
   min-width: 320px;
   height: 400px;
-  margin: 10px;
+  margin: 10px 5px;
   border-radius: 6px;
   background-color: ${({ theme }) => theme.descriptionCard};
   -webkit-box-shadow: 10px 10px 56px -27px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 56px -27px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 56px -27px rgba(0, 0, 0, 0.75);
+  transition: 0.2s;
   :hover {
     cursor: pointer;
+    transform: translateY(-5px);
   }
 `;
 export const CardInformation = styled.div``;

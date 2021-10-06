@@ -7,7 +7,7 @@ import { GlobalStyle } from "./assets/GlobalStyle/GlobalStyle";
 
 import Header from "./components/Header.js";
 import Home from "./components/Home.js";
-import DescriptionPage from "./components/DescriptionPage.js";
+//import DescriptionPage from "./components/DescriptionPage.js";
 
 import { Container } from "./components/styles/Container.styled";
 //<Route component={DescriptionPage} path="/:name" exact />
