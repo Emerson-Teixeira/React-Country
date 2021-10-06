@@ -1,13 +1,19 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { BsSearch } from "react-icons/bs";
+import { BsSearch, BsXCircle } from "react-icons/bs";
 import Card from "./Card.js";
 import { Container } from "./styles/Container.styled";
+import ClipLoader from "react-spinners/ClipLoader";
 import {
-  CustomInput, CustomSelect, FlexRowContainer,
+  CustomInput,
+  CustomSelect,
+  FlexRowContainer,
   FlexRowContainerSpaceBetween,
-  InputBox
+  FlexRowContainerLoading,
+  InputBox,
 } from "./styles/Home.styled.js";
+import { useTheme } from "styled-components";
 export default function Home() {
+  const theme = useTheme();
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
   const [region, setRegion] = useState("");
@@ -31,6 +37,7 @@ export default function Home() {
   }, [data]);
 
   async function getData() {
+    setIsLoading(true);
     try {
       let response = await fetch(
         "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,population"
@@ -42,6 +49,7 @@ export default function Home() {
   }
 
   async function getDataByName(name) {
+    setIsLoading(true);
     try {
       let response = await fetch(
         `https://restcountries.com/v3.1/name/${name}?fields=name,population,region,capital,flags,populatiom`
@@ -53,6 +61,7 @@ export default function Home() {
   }
 
   async function getDataByRegion(name) {
+    setIsLoading(true);
     try {
       let response = await fetch(
         `https://restcountries.com/v3.1/region/${name}?fields=name,population,region,capital,flags,populatiom`
@@ -82,9 +91,7 @@ export default function Home() {
   const handleInputDebounce = useCallback(debounce(handleCityInput), []);
   return (
     <Container>
-      {!isLoading ? (
-        <>
-          <FlexRowContainerSpaceBetween>
+      <FlexRowContainerSpaceBetween>
             <InputBox>
               <BsSearch size={20} />
               <CustomInput
@@ -109,23 +116,35 @@ export default function Home() {
               <option value="oceania">Oceania</option>
             </CustomSelect>
           </FlexRowContainerSpaceBetween>
+      {!isLoading ? (
+        <>
           <FlexRowContainer>
-            {data?.map((element, index) => {
-              return (
-                <Card
-                  key={index}
-                  name={element.name}
-                  flag={element?.flags?.png}
-                  region={element.region}
-                  capital={element.capital}
-                  population={element.population}
-                />
-              );
-            })}
+            {data.length > 0 ? (
+              data.map((element, index) => {
+                return (
+                  <Card
+                    key={index}
+                    name={element.name}
+                    flag={element?.flags?.png}
+                    region={element.region}
+                    capital={element.capital}
+                    population={element.population}
+                  />
+                );
+              })
+            ) : (
+              <FlexRowContainerLoading>
+                <BsXCircle size={250} />
+                Nothing Found
+              </FlexRowContainerLoading>
+            )}
           </FlexRowContainer>
         </>
       ) : (
-        ""
+        <FlexRowContainerLoading>
+          <ClipLoader color={theme.text} loading={isLoading} size={150} />
+          Loading...
+        </FlexRowContainerLoading>
       )}
     </Container>
   );

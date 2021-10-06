@@ -7,6 +7,22 @@ export const FlexRowContainer = styled.div`
   flex-flow: row wrap;
   padding: 15px 15px;
 `;
+
+export const FlexRowContainerLoading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  font-size: 64px;
+  height:40vh;
+  width: 96%;
+  margin: 20px;
+  svg{
+    margin: 20px;
+    color: ${({ theme }) => theme.text};
+  }
+`;
+
 export const FlexRowContainerSpaceBetween = styled.div`
   display: flex;
   justify-content: space-between;
