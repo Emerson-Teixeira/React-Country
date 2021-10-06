@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FlexRowContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-flow: row wrap;
   padding: 15px 15px;
@@ -28,7 +28,8 @@ export const FlexRowContainerSpaceBetween = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-flow: row wrap;
-  padding: 15px 60px;
+  padding: 15px;
+  width: 100%;
 `;
 export const InputBox = styled.div`
   color: ${({ theme }) => theme.text};
@@ -37,7 +38,8 @@ export const InputBox = styled.div`
   align-items: center;
   flex-flow: row nowrap;
   width: 360px;
-  height: 50px;
+  height: 60px;
+  margin: 20px;
   background-color: ${({ theme }) => theme.input};
   border-radius: 6px;
   -webkit-box-shadow: 0px 10px 27px -15px rgba(0, 0, 0, 1);
@@ -46,7 +48,6 @@ export const InputBox = styled.div`
   svg {
     width: 20%;
   }
-  margin-bottom: 10px;
 `;
 export const CustomInput = styled.input`
   color: ${({ theme }) => theme.text};
@@ -66,7 +67,7 @@ export const CustomInput = styled.input`
 `;
 
 export const CustomSelect = styled.select`
-  padding: 5px 0;
+
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.select};
   border: none;
@@ -75,14 +76,17 @@ export const CustomSelect = styled.select`
   box-shadow: 0px 10px 27px -15px rgba(0, 0, 0, 1);
   border-radius: 6px;
   width: 200px;
-  height: 50px !important;
-  text-indent: 5px;
-  line-height: 1.1em;
+  height: 60px;
+  margin: 20px;
+  margin-top: 0;
   :focus {
     outline: none;
   }
-  option {
-    margin: 5px;
-    padding: 5px;
-  }
 `;
+
+export const Container = styled.div`
+  flex-flow: row wrap;
+  padding: 15px 15px;
+
+`;
+
