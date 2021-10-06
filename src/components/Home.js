@@ -77,7 +77,7 @@ export default function Home() {
 
   const handleCityInput = (cityName) => {
     cityName ? getDataByName(cityName) : getData();
-    region("");
+    setRegion("");
   };
   const handleInputDebounce = useCallback(debounce(handleCityInput), []);
   return (
