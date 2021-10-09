@@ -164,15 +164,15 @@ export default function DescriptionPage(props) {
               <BorderBox>
                 {border.length > 0
                   ? border.map((Element, index) => (
-                    <Link style={style} to={`/${Element.cca3}`}>
-                    <BorderCountry
-                        onClick={(e) => {
-                          getData(Element.cca3);
-                        }}
-                      >
-                        {Element.name.common}
-                      </BorderCountry>
-                    </Link>
+                      <Link key={index} style={style} to={`/${Element.cca3}`}>
+                        <BorderCountry
+                          onClick={(e) => {
+                            getData(Element.cca3);
+                          }}
+                        >
+                          {Element.name.common}
+                        </BorderCountry>
+                      </Link>
                     ))
                   : "None"}
               </BorderBox>

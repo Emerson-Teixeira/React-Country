@@ -7,7 +7,7 @@ export default function Header({ setTheme, theme }) {
       <ThemeChanger
         onClick={(e) => setTheme(theme === "dark" ? "light" : "dark")}
       >
-        {theme === "dark" ? <BsSunFill  /> : <BsMoon />}
+        {theme === "dark" ? <BsSunFill /> : <BsMoon />}
         <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
       </ThemeChanger>
     </Container>

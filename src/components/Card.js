@@ -9,15 +9,22 @@ import {
 import { Link } from "react-router-dom";
 import { useTheme } from "styled-components";
 
-export default function Card({ name, flag, region, capital, population,cca3 }) {
-  const theme = useTheme()
+export default function Card({
+  name,
+  flag,
+  region,
+  capital,
+  population,
+  cca3,
+}) {
+  const theme = useTheme();
   const style = {
     color: theme.text,
-    textDecoration:'none'
+    textDecoration: "none",
   };
   return (
     <Link style={style} to={`/${cca3}`}>
-      <CardContainer onClick={(e) => console.log(name)}>
+      <CardContainer>
         <CustomImg alt="" src={flag} width={"100%"} height={"200px"} />
         <CardInformation>
           <CountryName>{name.common}</CountryName>
