@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     body{
         background: ${({ theme }) => theme.background};
-        color:  ${({ theme }) => theme.text};
+        color:  ${({ theme }) => theme.text} !important;
         font-family: 'Nunito Sans', sans-serif;
         font-size:16px;
         min-width: 375px;

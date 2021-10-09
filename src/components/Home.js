@@ -31,7 +31,6 @@ export default function Home() {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       setIsLoading(false);
     }
   }, [data]);
@@ -40,7 +39,7 @@ export default function Home() {
     setIsLoading(true);
     try {
       let response = await fetch(
-        "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,population"
+        "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags,population,cca3"
       );
       setData(await response.json());
     } catch (error) {
@@ -52,7 +51,7 @@ export default function Home() {
     setIsLoading(true);
     try {
       let response = await fetch(
-        `https://restcountries.com/v3.1/name/${name}?fields=name,population,region,capital,flags,populatiom`
+        `https://restcountries.com/v3.1/name/${name}?fields=name,population,region,capital,flags,population,cca3`
       );
       setData(await response.json());
     } catch (error) {
@@ -64,7 +63,7 @@ export default function Home() {
     setIsLoading(true);
     try {
       let response = await fetch(
-        `https://restcountries.com/v3.1/region/${name}?fields=name,population,region,capital,flags,populatiom`
+        `https://restcountries.com/v3.1/region/${name}?fields=name,population,region,capital,flags,population,cca3`
       );
       setData(await response.json());
     } catch (error) {
@@ -129,6 +128,7 @@ export default function Home() {
                   region={element.region}
                   capital={element.capital}
                   population={element.population}
+                  cca3={element.cca3}
                 />
               );
             })

@@ -7,9 +7,10 @@ import { GlobalStyle } from "./assets/GlobalStyle/GlobalStyle";
 
 import Header from "./components/Header.js";
 import Home from "./components/Home.js";
-//import DescriptionPage from "./components/DescriptionPage.js";
+import DescriptionPage from "./components/DescriptionPage.js";
 
 import { Container } from "./components/styles/Container.styled";
+import { Switch } from "react-router";
 //<Route component={DescriptionPage} path="/:name" exact />
 const objTheme = {
   dark: theme1,
@@ -25,8 +26,10 @@ function App() {
       <Container>
         <Header setTheme={setTheme} theme={theme} />
         <BrowserRouter>
-          <Route component={Home} path="/" exact />
-          
+          <Switch>
+            <Route component={Home} path="/" exact />
+            <Route component={DescriptionPage} path="/:code" />
+          </Switch>
         </BrowserRouter>
       </Container>
     </ThemeProvider>
