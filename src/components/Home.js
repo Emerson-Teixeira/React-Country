@@ -96,6 +96,7 @@ export default function Home() {
           <InputBox>
             <BsSearch size={20} />
             <CustomInput
+              name="SearchCountry"
               value={countryName}
               type="text"
               placeholder="Search for a country..."
@@ -108,6 +109,7 @@ export default function Home() {
           <CustomSelect
             value={region}
             onChange={(e) => setRegion(e.target.value)}
+            aria-label="Region"
           >
             <option value="">Filter by Region</option>
             <option value="africa">Africa</option>
@@ -135,13 +137,13 @@ export default function Home() {
           ) : (
             <FlexRowContainerLoading>
               <BsXCircle size={250} />
-              Nothing Found
+              <span>Nothing Found</span>
             </FlexRowContainerLoading>
           )
         ) : (
           <FlexRowContainerLoading>
             <ClipLoader color={theme.text} loading={isLoading} size={150} />
-            Loading...
+            <span>Loading...</span>
           </FlexRowContainerLoading>
         )}
       </FlexRowContainer>

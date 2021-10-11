@@ -23,7 +23,7 @@ export default function Card({
     textDecoration: "none",
   };
   return (
-    <Link style={style} to={`/${cca3}`} role='country'>
+    <Link style={style} to={`/${cca3}`} role={'link'}>
       <CardContainer>
         <CustomImg alt="" src={flag} height={"200"} />
         <CardInformation>
