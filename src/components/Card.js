@@ -23,9 +23,9 @@ export default function Card({
     textDecoration: "none",
   };
   return (
-    <Link style={style} to={`/${cca3}`}>
+    <Link style={style} to={`/${cca3}`} role='country'>
       <CardContainer>
-        <CustomImg alt="" src={flag} width={"100%"} height={"200px"} />
+        <CustomImg alt="" src={flag} height={"200"} />
         <CardInformation>
           <CountryName>{name.common}</CountryName>
           <CountryDescription>

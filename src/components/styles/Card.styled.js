@@ -43,4 +43,5 @@ export const CustomImg = styled.img`
   border-radius: 6px;
   border-bottom-left-radius:0px;
   border-bottom-right-radius:0px;
+  width: 100%;
 `;
